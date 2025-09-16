@@ -2,6 +2,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroBanner from '@/components/sections/HeroBanner';
 import AboutSection from '@/components/sections/AboutSection';
+import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroBanner />
         <AboutSection />
+        <ContactSection />
         
         <section className="py-16 px-4 md:px-8 lg:px-20">
           <div className="max-w-7xl mx-auto">

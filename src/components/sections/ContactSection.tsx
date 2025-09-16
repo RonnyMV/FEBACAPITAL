@@ -22,11 +22,23 @@ const ContactSection = () => {
               <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
                 Consultores online
               </h3>
-                <div className="flex items-center -space-x-3">
-                    <img src="/avatars/a1.jpg" alt="Ana — online" className="h-12 w-12 rounded-full ring-2 ring-white object-cover" />
-                    <img src="/avatars/a2.jpg" alt="Bruno — online" className="h-12 w-12 rounded-full ring-2 ring-white object-cover" />
-                    <img src="/avatars/a3.jpg" alt="Carla — online" className="h-12 w-12 rounded-full ring-2 ring-white object-cover" />
-                </div>
+              <div className="flex items-center -space-x-3">
+                <img
+                  src="/avatars/a1.jpg"
+                  alt="Ana — online"
+                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
+                />
+                <img
+                  src="/avatars/a2.jpg"
+                  alt="Bruno — online"
+                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
+                />
+                <img
+                  src="/avatars/a3.jpg"
+                  alt="Carla — online"
+                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
+                />
+              </div>
             </div>
           </div>
 
@@ -41,8 +53,11 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-        
-        <div className="absolute z-20 w-full max-w-sm lg:max-w-md px-4 lg:px-0" style={{ left: 'calc(70% - 12rem)', top: 'calc(50% - 15.5rem)' }}>
+
+        <div
+          className="absolute z-20 w-full max-w-sm lg:max-w-md px-4 lg:px-0"
+          style={{ left: 'calc(70% - 12rem)', top: 'calc(50% - 15.5rem)' }}
+        >
           <ContactForm />
         </div>
       </div>
