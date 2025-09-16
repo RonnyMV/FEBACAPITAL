@@ -1,13 +1,20 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 
 const Header = () => {
   return (
     <header className="w-full bg-white shadow-sm">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-4 py-4 flex items-center justify-between pl-[135px] pr-[135px]">
         <div className="flex items-center">
-          <div className="text-2xl font-bold text-black">LIVA</div>
+          <Image
+            src="/images/logo_header.png"
+            alt="Logo"
+            width={120}
+            height={40}
+            className="h-8 w-auto"
+          />
         </div>
         
         <div className="hidden md:flex items-center space-x-8">
