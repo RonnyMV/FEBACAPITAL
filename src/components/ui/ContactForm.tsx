@@ -95,8 +95,26 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
+      // Simulated API call - replace with actual endpoint when needed
       await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form submitted:', formData);
+      
+      // Uncomment below to use PHP backend:
+      /*
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit form');
+      }
+      */
+      
       setIsSent(true);
       
       setTimeout(() => {
@@ -112,6 +130,12 @@ const ContactForm = () => {
       }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error);
+      setErrors({ 
+        name: '', 
+        phone: '', 
+        email: '', 
+        message: 'Erro ao enviar formulário. Tente novamente.' 
+      });
     } finally {
       setIsSubmitting(false);
     }
