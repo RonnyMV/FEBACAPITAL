@@ -1,5 +1,9 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
+import ImageSkeleton from './ImageSkeleton';
+import ImageWithSkeleton from './ImageWithSkeleton';
 
 interface FeaturedProjectProps {
   project: {
@@ -12,15 +16,37 @@ interface FeaturedProjectProps {
 }
 
 const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true);
+  };
+
   return (
 <div className="relative group cursor-pointer lg:row-span-2 lg:col-span-2">
   <div className="relative overflow-hidden rounded-lg">
+    {!isLoaded && !hasError && (
+      <ImageSkeleton
+        width={800}
+        height={590}
+        className="absolute inset-0 z-10"
+      />
+    )}
     <Image
       src={project.image}
       alt={project.title}
       width={800}
       height={600}
-      className="w-full h-[590px] object-cover transition-transform duration-300 group-hover:scale-105"
+      className={`w-full h-[590px] object-cover transition-transform duration-300 group-hover:scale-105 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      loading="lazy"
+      onLoad={handleLoad}
+      onError={handleError}
     />
 
     <div className="absolute inset-0 z-10 bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
