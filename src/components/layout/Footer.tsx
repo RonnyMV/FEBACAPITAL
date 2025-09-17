@@ -38,9 +38,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="text-center flex flex-col justify-center">
-            <h3 className="text-white font-semibold mb-4 text-sm flex justify-start">Acompanhe nas redes</h3>
-            <div className="flex justify-start space-x-2">
+          <div className="flex flex-col justify-center">
+            <h3 className="text-white font-semibold mb-4 text-sm">Acompanhe nas redes</h3>
+            <div className="flex space-x-2">
               <a href="#" className="hover:opacity-80 transition">
                 <img src="/images/icons/facebook_footer_image.png" alt="Facebook" width={24.6} height={24.6} />
               </a>
@@ -52,14 +52,14 @@ const Footer = () => {
 
           <div>
             <div className="space-y-4">
-              <div className="text-white text-center">
+              <div className="text-white">
                 <p className="text-sm mb-2">Duis aute irure dolor in reprehenderit</p>
                 <p className="text-sm mb-6">in voluptate velit esse cillum dolore</p>
               </div>
-              <div className="text-center flex flex-col items-center">
+              <div className="flex flex-col items-start">
                 <p className="text-white text-lg mb-2">(11) 9909-9091</p>
                 <p className="green-design text-lg mb-4">contato@liva.com.br</p>
-                <button className="btn-whatsapp">
+                <button className="btn-whatsapp" style={{width: '100%', maxWidth: '270px'}}>
                   <img src="/images/icons/whatsapp.png" alt="WhatsApp" width={13.48} height={13.48} className="mr-2" />
                   WHATSAPP
                 </button>
