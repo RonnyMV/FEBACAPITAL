@@ -43,7 +43,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => {
       alt={project.title}
       width={800}
       height={600}
-      className={`w-full h-[590px] object-cover transition-transform duration-300 group-hover:scale-105 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      className={`w-full h-[280px] md:h-[420px] lg:h-[590px] object-cover transition-transform duration-300 group-hover:scale-105 transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
       loading="lazy"
       onLoad={handleLoad}
       onError={handleError}
