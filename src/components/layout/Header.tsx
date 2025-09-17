@@ -9,7 +9,7 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between pl-[135px] pr-[135px]">
         <div className="flex items-center">
           <Image
-            src="/images/logo_header.png"
+            src="/images/logos/logo_header.png"
             alt="Logo"
             width={120}
             height={40}
@@ -37,7 +37,8 @@ const Header = () => {
               </svg>
             </a>
           </div>
-          <button className="bg-green-500 text-white px-5 py-2 rounded-md font-bold hover:bg-green-600 transition">
+          <button className="btn-whatsapp">
+                <img src="/images/icons/whatsapp.png" alt="WhatsApp" width={13.48} height={13.48} className="mr-2" />
             WHATSAPP
           </button>
         </div>
