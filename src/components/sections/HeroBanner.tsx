@@ -111,10 +111,10 @@ const HeroBanner = () => {
           <span className="text-xs font-semibold text-white uppercase mb-2 tracking-wider block">
             {slides[currentSlide].badge}
           </span>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white mb-1">
+          <h2 className="md:text-4xl lg:text-[80px] font-extrabold text-white mb-1 ">
             {slides[currentSlide].title}
           </h2>
-          <span className="inline-block bg-green-200 bg-opacity-80 text-green-900 px-3 py-1 rounded text-xs md:text-sm font-medium">
+          <span className="inline-block green-design-clear text-black text-[18px] px-3 py-1 rounded text-xs md:text-sm font-medium">
             {slides[currentSlide].subtitle}
           </span>
           <div className="mt-4">
