@@ -5,7 +5,10 @@ import Image from 'next/image';
 import ContactForm from '@/components/ui/ContactForm';
 import ImageSkeleton from '../ui/ImageSkeleton';
 
-const ConsultantImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
+const ConsultantImage: React.FC<{ src: string; alt: string }> = ({
+  src,
+  alt,
+}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -49,10 +52,11 @@ const ContactSection = () => {
         <div className="block lg:hidden bg-black py-10">
           <div className="max-w-sm mx-auto px-4">
             <h2 className="text-2xl font-bold text-white mb-2 leading-tight text-[28px]">
-              Fale agora  com um consultor de vendas
+              Fale agora com um consultor de vendas
             </h2>
             <p className="text-base text-white mb-6 opacity-90 ">
-              Tire suas dúvidas e  conheça de perto o seu novo <b>jeito de morar.</b>
+              Tire suas dúvidas e conheça de perto o seu novo{' '}
+              <b>jeito de morar.</b>
             </p>
             <ContactForm />
             <div className="mt-6 text-center">
@@ -61,13 +65,22 @@ const ContactSection = () => {
               </h3>
               <div className="flex items-center justify-center -space-x-3">
                 <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <ConsultantImage src="/images/consultants/consultant_1.png" alt="Consultor 1" />
+                  <ConsultantImage
+                    src="/images/consultants/consultant_1.png"
+                    alt="Consultor 1"
+                  />
                 </div>
                 <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <ConsultantImage src="/images/consultants/consultant_2.png" alt="Consultor 2" />
+                  <ConsultantImage
+                    src="/images/consultants/consultant_2.png"
+                    alt="Consultor 2"
+                  />
                 </div>
                 <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <ConsultantImage src="/images/consultants/consultant_3.png" alt="Consultor 3" />
+                  <ConsultantImage
+                    src="/images/consultants/consultant_3.png"
+                    alt="Consultor 3"
+                  />
                 </div>
               </div>
             </div>
@@ -80,7 +93,8 @@ const ContactSection = () => {
             </h2>
 
             <p className="text-base md:text-lg text-white mb-8 opacity-90">
-              Tire suas dúvidas e conheça de perto o seu novo <b>jeito de morar.</b>
+              Tire suas dúvidas e conheça de perto o seu novo{' '}
+              <b>jeito de morar.</b>
             </p>
 
             <div className="mb-8">

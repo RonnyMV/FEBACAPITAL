@@ -8,7 +8,7 @@ const ContactForm = () => {
     name: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -16,25 +16,30 @@ const ContactForm = () => {
     name: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [touched, setTouched] = useState({
     name: false,
     phone: false,
     email: false,
-    message: false
+    message: false,
   });
-
 
   const validateField = (name: string, value: string) => {
     switch (name) {
       case 'name':
-        return value.trim().length < 2 ? 'Nome deve ter pelo menos 2 caracteres' : '';
+        return value.trim().length < 2
+          ? 'Nome deve ter pelo menos 2 caracteres'
+          : '';
       case 'phone':
-        return !validatePhoneNumber(value) && value.length > 0 ? 'Telefone deve ter 10 ou 11 dígitos' : '';
+        return !validatePhoneNumber(value) && value.length > 0
+          ? 'Telefone deve ter 10 ou 11 dígitos'
+          : '';
       case 'email':
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return !emailRegex.test(value) && value.length > 0 ? 'Por favor, preencher corretamente' : '';
+        return !emailRegex.test(value) && value.length > 0
+          ? 'Por favor, preencher corretamente'
+          : '';
       case 'message':
         return '';
       default:
@@ -42,62 +47,66 @@ const ContactForm = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    
+
     const formattedValue = name === 'phone' ? formatPhoneNumber(value) : value;
-    
+
     setFormData({
       ...formData,
-      [name]: formattedValue
+      [name]: formattedValue,
     });
 
     if (touched[name as keyof typeof touched]) {
       setErrors({
         ...errors,
-        [name]: validateField(name, formattedValue)
+        [name]: validateField(name, formattedValue),
       });
     }
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    
+
     const formattedValue = name === 'phone' ? formatPhoneNumber(value) : value;
-    
+
     setTouched({
       ...touched,
-      [name]: true
+      [name]: true,
     });
     setErrors({
       ...errors,
-      [name]: validateField(name, formattedValue)
+      [name]: validateField(name, formattedValue),
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const newTouched = { name: true, phone: true, email: true, message: true };
     setTouched(newTouched);
-    
+
     const newErrors = {
       name: validateField('name', formData.name),
       phone: validateField('phone', formData.phone),
       email: validateField('email', formData.email),
-      message: validateField('message', formData.message)
+      message: validateField('message', formData.message),
     };
     setErrors(newErrors);
-    
-    const hasErrors = Object.values(newErrors).some(error => error !== '');
+
+    const hasErrors = Object.values(newErrors).some((error) => error !== '');
     if (hasErrors) return;
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // Simulated API call - replace with actual endpoint when needed
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       // Uncomment below to use PHP backend:
       /*
       const response = await fetch('/api/contact.php', {
@@ -114,15 +123,15 @@ const ContactForm = () => {
         throw new Error(result.error || 'Failed to submit form');
       }
       */
-      
+
       setIsSent(true);
-      
+
       setTimeout(() => {
         setFormData({
           name: '',
           phone: '',
           email: '',
-          message: ''
+          message: '',
         });
         setErrors({ name: '', phone: '', email: '', message: '' });
         setTouched({ name: false, phone: false, email: false, message: false });
@@ -130,11 +139,11 @@ const ContactForm = () => {
       }, 2000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      setErrors({ 
-        name: '', 
-        phone: '', 
-        email: '', 
-        message: 'Erro ao enviar formulário. Tente novamente.' 
+      setErrors({
+        name: '',
+        phone: '',
+        email: '',
+        message: 'Erro ao enviar formulário. Tente novamente.',
       });
     } finally {
       setIsSubmitting(false);
@@ -142,17 +151,17 @@ const ContactForm = () => {
   };
 
   return (
-    <div className='bg-white rounded-lg p-8 shadow-lg'>
-      <h3 className='text-[17px] md:text-2xl font-bold text-gray-900 mb-6'>
+    <div className="bg-white rounded-lg p-8 shadow-lg">
+      <h3 className="text-[17px] md:text-2xl font-bold text-gray-900 mb-6">
         Fale agora mesmo com a Liva
       </h3>
-      
-      <form onSubmit={handleSubmit} className='space-y-4 '>
-        <div className='relative'>
+
+      <form onSubmit={handleSubmit} className="space-y-4 ">
+        <div className="relative">
           <input
-            type='text'
-            name='name'
-            placeholder='Nome'
+            type="text"
+            name="name"
+            placeholder="Nome"
             value={formData.name}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -160,20 +169,28 @@ const ContactForm = () => {
             required
           />
           {touched.name && !errors.name && formData.name && (
-            <svg className='form-success-icon' fill='currentColor' viewBox='0 0 20 20'>
-              <path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' />
+            <svg
+              className="form-success-icon"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
           )}
           {touched.name && errors.name && (
-            <div className='form-error'>{errors.name}</div>
+            <div className="form-error">{errors.name}</div>
           )}
         </div>
-        
-        <div className='relative'>
+
+        <div className="relative">
           <input
-            type='tel'
-            name='phone'
-            placeholder='Telefone'
+            type="tel"
+            name="phone"
+            placeholder="Telefone"
             value={formData.phone}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -181,20 +198,28 @@ const ContactForm = () => {
             required
           />
           {touched.phone && !errors.phone && formData.phone && (
-            <svg className='form-success-icon' fill='currentColor' viewBox='0 0 20 20'>
-              <path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' />
+            <svg
+              className="form-success-icon"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
           )}
           {touched.phone && errors.phone && (
-            <div className='form-error'>{errors.phone}</div>
+            <div className="form-error">{errors.phone}</div>
           )}
         </div>
-        
-        <div className='relative'>
+
+        <div className="relative">
           <input
-            type='email'
-            name='email'
-            placeholder='E-mail'
+            type="email"
+            name="email"
+            placeholder="E-mail"
             value={formData.email}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -202,19 +227,27 @@ const ContactForm = () => {
             required
           />
           {touched.email && !errors.email && formData.email && (
-            <svg className='form-success-icon' fill='currentColor' viewBox='0 0 20 20'>
-              <path fillRule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clipRule='evenodd' />
+            <svg
+              className="form-success-icon"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
           )}
           {touched.email && errors.email && (
-            <div className='form-error'>{errors.email}</div>
+            <div className="form-error">{errors.email}</div>
           )}
         </div>
-        
-        <div className='relative'>
+
+        <div className="relative">
           <textarea
-            name='message'
-            placeholder='Mensagem'
+            name="message"
+            placeholder="Mensagem"
             value={formData.message}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -223,16 +256,20 @@ const ContactForm = () => {
             required
           />
           {touched.message && errors.message && (
-            <div className='form-error'>{errors.message}</div>
+            <div className="form-error">{errors.message}</div>
           )}
         </div>
-        
+
         <button
-          type='submit'
+          type="submit"
           disabled={isSubmitting || isSent}
           className={`w-full btn-submit ${isSent ? 'btn-submit--sent' : ''}`}
         >
-          {isSent ? 'MENSAGEM ENVIADA' : isSubmitting ? 'ENVIANDO MENSAGEM' : 'ENVIAR MENSAGEM'}
+          {isSent
+            ? 'MENSAGEM ENVIADA'
+            : isSubmitting
+              ? 'ENVIANDO MENSAGEM'
+              : 'ENVIAR MENSAGEM'}
         </button>
       </form>
     </div>

@@ -1,6 +1,6 @@
 export const formatPhoneNumber = (value: string) => {
   const digits = value.replace(/\D/g, '');
-  
+
   if (digits.length <= 2) {
     return digits;
   } else if (digits.length <= 6) {

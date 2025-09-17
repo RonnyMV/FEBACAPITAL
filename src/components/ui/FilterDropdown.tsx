@@ -9,13 +9,21 @@ interface FilterDropdownProps {
   onChange: (value: string[]) => void;
 }
 
-const FilterDropdown = ({ label, options, value, onChange }: FilterDropdownProps) => {
+const FilterDropdown = ({
+  label,
+  options,
+  value,
+  onChange,
+}: FilterDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -28,7 +36,7 @@ const FilterDropdown = ({ label, options, value, onChange }: FilterDropdownProps
 
   const handleOptionClick = (option: string) => {
     if (value.includes(option)) {
-      onChange(value.filter(item => item !== option));
+      onChange(value.filter((item) => item !== option));
     } else {
       onChange([...value, option]);
     }
@@ -53,10 +61,15 @@ const FilterDropdown = ({ label, options, value, onChange }: FilterDropdownProps
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
         </svg>
       </button>
-      
+
       {isOpen && (
         <div className="dropdown-menu">
           {options.map((option, index) => (

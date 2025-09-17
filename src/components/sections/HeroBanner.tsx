@@ -38,9 +38,7 @@ const slides: Slide[] = [
 const HeroBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>(
-    'right'
-  );
+  const [, setSlideDirection] = useState<'left' | 'right'>('right');
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
@@ -89,18 +87,15 @@ const HeroBanner = () => {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div
-              key={slide.id}
-             className="min-w-full"
-            >
+            <div key={slide.id} className="min-w-full">
               <Image
-                  src={slide.image}
-                  alt={`Vista do ${slide.title}`}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto"
-                  priority={currentSlide === 0}
-                />
+                src={slide.image}
+                alt={`Vista do ${slide.title}`}
+                width={1920}
+                height={1080}
+                className="w-full h-auto"
+                priority={currentSlide === 0}
+              />
             </div>
           ))}
         </div>
