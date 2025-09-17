@@ -107,28 +107,28 @@ const HeroBanner = () => {
 
         <div className="absolute inset-0" />
 
-        <div className="absolute left-6 md:left-10 top-1/2 transform -translate-y-1/2 z-20 ml-16">
-          <span className="text-xs font-semibold text-white uppercase mb-2 tracking-wider block">
+        <div className="absolute left-6 md:left-10 top-1/3 md:top-1/2 transform -translate-y-1/2 z-20 ml-16">
+          <span className="text-xs font-semibold text-white uppercase mb-2 tracking-wider block text-[12px]">
             {slides[currentSlide].badge}
           </span>
-          <h2 className="md:text-4xl lg:text-[80px] font-extrabold text-white mb-1 ">
+          <h2 className="text-[32px] md:text-[4xl] lg:text-[80px] font-extrabold text-white mb-1 ">
             {slides[currentSlide].title}
           </h2>
-          <span className="inline-block green-design-clear text-black text-[18px] px-3 py-1 rounded text-xs md:text-sm font-medium">
+          <span className="inline-block green-design-clear text-black text-[12px] px-3 py-1 rounded text-xs md:text-sm font-medium">
             {slides[currentSlide].subtitle}
           </span>
-          <div className="mt-4">
+          <div className="mt-4 md:mb-0">
             <button className="btn-about btn-about--hero">SAIBA MAIS</button>
           </div>
         </div>
 
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-10 text-white w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded z-30 hover:bg-opacity-100 transition focus:ring-2 hover:ring-green-300"
+          className="absolute left-6 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-black/40 text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-md z-30 hover:bg-black/60 transition focus:outline-none"
           aria-label="Anterior"
         >
           <svg
-            className="w-4 h-4 md:w-6 md:h-6"
+            className="w-5 h-5 md:w-6 md:h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -144,11 +144,11 @@ const HeroBanner = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-80 text-white w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded z-30 hover:bg-opacity-100 transition focus:ring-2 focus:ring-green-300"
+          className="absolute right-6 top-1/3 md:top-1/2 transform -translate-y-1/2 bg-black/40 text-white w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-md z-30 hover:bg-black/60 transition focus:outline-none"
           aria-label="Próximo"
         >
           <svg
-            className="w-4 h-4 md:w-6 md:h-6"
+            className="w-5 h-5 md:w-6 md:h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
