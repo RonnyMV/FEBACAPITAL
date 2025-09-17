@@ -105,11 +105,11 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 pl-[135px] pr-[135px]">
+    <section className="w-full pt-8 pb-16 md:py-24 bg-white">
+      <div className="container mx-auto px-4 lg:pl-[135px] lg:pr-[135px]">
         
-        <div className="flex items-center justify-between mb-8">
-          <div>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+          <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-light text-black mb-2">
               Confira todos os
             </h2>
@@ -119,10 +119,11 @@ const ProjectsSection = () => {
             </h2>
           </div>
           
-          <button
-            onClick={toggleFilters}
-            className={`btn-filter ${showFilters ? 'btn-filter--active' : ''}`}  
-          >
+          <div className="w-full md:w-auto flex justify-center md:justify-start">
+            <button
+              onClick={toggleFilters}
+              className={`btn-filter w-full max-w-[370px] h-14 md:w-[174px] md:h-12 md:max-w-none ${showFilters ? 'btn-filter--active' : ''}`}  
+            >
             {showFilters ? (
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -133,12 +134,13 @@ const ProjectsSection = () => {
               </svg>
             )}
             <span>FILTROS</span>
-          </button>
+            </button>
+          </div>
         </div>
 
         {showFilters && (
           <div className="mb-8 p-6 rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center md:justify-items-stretch">
               <FilterDropdown
                 label="Estágio do empreendimento"
                 options={filterOptions.stage}
@@ -161,7 +163,15 @@ const ProjectsSection = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="block md:hidden">
+          <div className="grid grid-cols-1 gap-6 mb-8">
+            {projects.map((project) => (
+              <RegularProject key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {projects.map((project, index) => (
             <React.Fragment key={project.id}>
               {index === 0 ? (
