@@ -1,26 +1,54 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface FilterDropdownProps {
   label: string;
   options: string[];
-  value: string;
-  onChange: (value: string) => void;
+  value: string[];
+  onChange: (value: string[]) => void;
 }
 
 const FilterDropdown = ({ label, options, value, onChange }: FilterDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleOptionClick = (option: string) => {
+    if (value.includes(option)) {
+      onChange(value.filter(item => item !== option));
+    } else {
+      onChange([...value, option]);
+    }
+  };
+
+  const getDisplayText = () => {
+    if (value.length === 0) return label;
+    if (value.length === 1) return value[0];
+    return `${value.length} selecionados`;
+  };
 
   return (
-    <div className="relative">
+    <div className="dropdown" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white text-left flex items-center justify-between hover:border-gray-400 transition-colors"
+        className={`dropdown-trigger ${isOpen ? 'open' : ''}`}
       >
-        <span className="text-gray-700">{value || label}</span>
+        <span>{getDisplayText()}</span>
         <svg
-          className={`w-4 h-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`dropdown-chevron ${isOpen ? 'open' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -30,15 +58,12 @@ const FilterDropdown = ({ label, options, value, onChange }: FilterDropdownProps
       </button>
       
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+        <div className="dropdown-menu">
           {options.map((option, index) => (
             <button
               key={index}
-              onClick={() => {
-                onChange(option);
-                setIsOpen(false);
-              }}
-              className="w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors first:rounded-t-lg last:rounded-b-lg"
+              onClick={() => handleOptionClick(option)}
+              className={`dropdown-option ${value.includes(option) ? 'selected' : ''}`}
             >
               {option}
             </button>

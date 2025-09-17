@@ -50,12 +50,12 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ project }) => {
 
         <div className="space-y-4 max-w-xl">
             <div className="flex items-center gap-3">
-              <img src="/images/bedroom.svg" alt="Bedroom" width={19} height={19} className="text-black" />
+                      <img src="/images/icons/bedroom.svg" alt="Bedroom" width={19} height={19} className="text-black" />
               <span className="text-sm">Apartamento com 3 dormitórios sendo 1 suíte</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <img src="/images/camera.svg" alt="Security" width={19} height={19} className="text-black" />
+              <img src="/images/icons/camera.svg" alt="Security" width={19} height={19} className="text-black" />
               <span className="text-sm">Condomínio Fechado</span>
             </div>
         </div>
