@@ -21,7 +21,7 @@ const AboutSection = () => {
           <div className='space-y-6'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight'>
               Construimos confiança e{' '}
-              <span className='text-green-500'>realizamos sonhos!</span>
+              <span className='green-design'>realizamos sonhos!</span>
             </h2>
             
             <p className='text-lg text-gray-600 leading-relaxed'>
