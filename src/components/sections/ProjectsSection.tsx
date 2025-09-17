@@ -17,63 +17,63 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'HORIZONTE RESIDENCE',
-    image: '/images/image_grid_1.png',
+    image: '/images/grids/image_grid_1.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 2,
     title: 'ONE TOWER',
-    image: '/images/image_grid_2.png',
+    image: '/images/grids/image_grid_2.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 3,
     title: 'INFINITY COAST',
-    image: '/images/image_grid_3.png',
+    image: '/images/grids/image_grid_3.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 4,
     title: 'SKYLINE TOWER',
-    image: '/images/image_grid_4.png',
+    image: '/images/grids/image_grid_4.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 5,
     title: 'GRANDE PLACE TOWER',
-    image: '/images/image_grid_5.png',
+    image: '/images/grids/image_grid_5.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 6,
     title: 'IMPERIUM TOWER',
-    image: '/images/image_grid_6.png',
+    image: '/images/grids/image_grid_6.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 7,
     title: 'TITANIUM TOWER',
-    image: '/images/image_grid_7.png',
+    image: '/images/grids/image_grid_7.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 8,
     title: 'BLUE COST TOWER',
-    image: '/images/image_grid_8.png',
+    image: '/images/grids/image_grid_8.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 9,
     title: 'BLUE COST TOWER',
-    image: '/images/image_grid_9.png',
+    image: '/images/grids/image_grid_9.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   }
@@ -115,7 +115,7 @@ const ProjectsSection = () => {
             </h2>
             <h2 className="text-3xl md:text-4xl font-light">
               <span className="text-black">empreendimentos da </span>
-              <span className="text-green-600 font-semibold">Liva</span>
+              <span className="green-design font-semibold">Liva</span>
             </h2>
           </div>
           

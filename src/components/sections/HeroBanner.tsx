@@ -14,21 +14,21 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/images/image_banner_1.png',
+    image: '/images/banners/image_banner_1.png',
     title: 'Barra View',
     subtitle: 'Apartamento com 3 dormitórios sendo 1 suíte',
     badge: 'PRÉ LANÇAMENTO',
   },
   {
     id: 2,
-    image: '/images/image_banner_2.png',
+    image: '/images/banners/image_banner_2.png',
     title: 'Horizonte Residence',
     subtitle: 'Apartamento com 2 dormitórios',
     badge: 'LANÇAMENTO',
   },
   {
     id: 3,
-    image: '/images/image_banner_3.png',
+    image: '/images/banners/image_banner_3.png',
     title: 'Vista Premium',
     subtitle: 'Apartamento com 4 dormitórios sendo 2 suítes',
     badge: 'PRÉ LANÇAMENTO',
