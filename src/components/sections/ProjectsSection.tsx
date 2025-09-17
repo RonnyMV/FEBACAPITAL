@@ -82,9 +82,9 @@ const projects: Project[] = [
 const ProjectsSection = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [filters, setFilters] = useState({
-    stage: '',
-    location: '',
-    propertyType: ''
+    stage: [] as string[],
+    location: [] as string[],
+    propertyType: [] as string[]
   });
 
   const filterOptions = {
@@ -93,7 +93,7 @@ const ProjectsSection = () => {
     propertyType: ['Todos', 'Apartamento', 'Casa', 'Cobertura', 'Terreno']
   };
 
-  const handleFilterChange = (filterType: keyof typeof filters, value: string) => {
+  const handleFilterChange = (filterType: keyof typeof filters, value: string[]) => {
     setFilters(prev => ({
       ...prev,
       [filterType]: value
@@ -121,17 +121,23 @@ const ProjectsSection = () => {
           
           <button
             onClick={toggleFilters}
-            className="flex items-center space-x-2 border border-black px-4 py-2 rounded-lg hover:bg-black hover:text-white transition-colors"
+            className={`btn-filter ${showFilters ? 'btn-filter--active' : ''}`}  
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-            </svg>
-            <span className="font-medium">FILTROS</span>
+            {showFilters ? (
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+            )}
+            <span>FILTROS</span>
           </button>
         </div>
 
         {showFilters && (
-          <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+          <div className="mb-8 p-6 rounded-lg">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <FilterDropdown
                 label="Estágio do empreendimento"
@@ -167,8 +173,8 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <button className="border border-gray-300 text-gray-300 px-8 py-3 rounded-sm font-semibold hover:bg-gray-600 hover:text-white transition-colors">
+        <div className="text-center flex items-center justify-center">
+          <button className="btn-primary">
             CARREGAR MAIS
           </button>
         </div>

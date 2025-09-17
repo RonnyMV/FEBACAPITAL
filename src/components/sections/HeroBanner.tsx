@@ -117,9 +117,9 @@ const HeroBanner = () => {
           <span className="inline-block bg-green-200 bg-opacity-80 text-green-900 px-3 py-1 rounded text-xs md:text-sm font-medium">
             {slides[currentSlide].subtitle}
           </span>
-          <button className="mt-4 border border-white text-white px-5 py-2 rounded hover:bg-white hover:text-black font-semibold transition block">
-            SAIBA MAIS
-          </button>
+          <div className="mt-4">
+            <button className="btn-about btn-about--hero">SAIBA MAIS</button>
+          </div>
         </div>
 
         <button

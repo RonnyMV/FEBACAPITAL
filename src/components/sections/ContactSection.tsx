@@ -23,21 +23,33 @@ const ContactSection = () => {
                 Consultores online
               </h3>
               <div className="flex items-center -space-x-3">
-                <img
-                  src="/avatars/a1.jpg"
-                  alt="Ana — online"
-                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                />
-                <img
-                  src="/avatars/a2.jpg"
-                  alt="Bruno — online"
-                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                />
-                <img
-                  src="/avatars/a3.jpg"
-                  alt="Carla — online"
-                  className="h-12 w-12 rounded-full ring-2 ring-white object-cover"
-                />
+                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <Image
+                    src="/images/consultants/consultant_1.png"
+                    alt="Consultor 1"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <Image
+                    src="/images/consultants/consultant_2.png"
+                    alt="Consultor 2"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <Image
+                    src="/images/consultants/consultant_3.png"
+                    alt="Consultor 3"
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
             </div>
           </div>

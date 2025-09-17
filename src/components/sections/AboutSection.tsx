@@ -11,7 +11,7 @@ const AboutSection = () => {
           
           <div className='relative hidden lg:block'>
             <Image
-              src='/image.svg'
+              src='/images/image.svg'
               alt='Imagem homem e criança'
               width={500}
               height={500}
@@ -31,7 +31,7 @@ const AboutSection = () => {
               ao lado da sua família.
             </p>
             
-            <button className='border-2 border-black text-black px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-all duration-300 mt-8'>
+            <button className='btn-about mt-8'>
               SAIBA MAIS
             </button>
           </div>
