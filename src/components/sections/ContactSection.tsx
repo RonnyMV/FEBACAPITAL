@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ContactForm from '@/components/ui/ContactForm';
-import ImageSkeleton from '@/components/ui/ImageSkeleton';
+import ImageSkeleton from '../ui/ImageSkeleton';
 
 const ConsultantImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,14 +46,41 @@ const ContactSection = () => {
   return (
     <section className="w-full ">
       <div className="relative">
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-0 min-h-[600px]">
-          <div className="lg:col-span-7 bg-black p-8 lg:p-12 flex flex-col justify-center">
+        <div className="block lg:hidden bg-black py-10">
+          <div className="max-w-sm mx-auto px-4">
+            <h2 className="text-2xl font-bold text-white mb-2 leading-tight text-[28px]">
+              Fale agora  com um consultor de vendas
+            </h2>
+            <p className="text-base text-white mb-6 opacity-90 ">
+              Tire suas dúvidas e  conheça de perto o seu novo <b>jeito de morar.</b>
+            </p>
+            <ContactForm />
+            <div className="mt-6 text-center">
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Consultores online
+              </h3>
+              <div className="flex items-center justify-center -space-x-3">
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage src="/images/consultants/consultant_1.png" alt="Consultor 1" />
+                </div>
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage src="/images/consultants/consultant_2.png" alt="Consultor 2" />
+                </div>
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage src="/images/consultants/consultant_3.png" alt="Consultor 3" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="hidden lg:grid lg:grid-cols-10 lg:gap-0 lg:min-h-[600px]">
+          <div className="hidden lg:flex lg:col-span-7 bg-black p-8 lg:p-12 flex-col justify-center">
             <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-6 leading-tight">
               Fale agora com um consultor de vendas
             </h2>
 
             <p className="text-base md:text-lg text-white mb-8 opacity-90">
-              Tire suas dúvidas e conheça de perto o seu novo jeito de morar.
+              Tire suas dúvidas e conheça de perto o seu novo <b>jeito de morar.</b>
             </p>
 
             <div className="mb-8">
@@ -96,7 +123,7 @@ const ContactSection = () => {
         </div>
 
         <div
-          className="absolute z-20 w-full max-w-sm lg:max-w-md px-4 lg:px-0"
+          className="hidden lg:block absolute z-20 w-full max-w-sm lg:max-w-md px-4 lg:px-0"
           style={{ left: 'calc(70% - 12rem)', top: 'calc(50% - 15.5rem)' }}
         >
           <ContactForm />
