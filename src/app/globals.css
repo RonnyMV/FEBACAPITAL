@@ -76,8 +76,8 @@ body {
   gap: 0.5rem;
   font-weight: 500;
   text-transform: uppercase;
-  width: 174px;
-  height: 48px;
+  /* width defined responsively in component (w-full on mobile, fixed on desktop) */
+  height: 56px;
 }
 
 .btn-filter:hover {
@@ -211,7 +211,8 @@ body {
   text-transform: uppercase;
   cursor: pointer;
   font-family: 'Urbanist', Arial, Helvetica, sans-serif;
-  width: 370px;
+  width: 100%;
+  max-width: 370px;
   height: 48px;
 }
 
