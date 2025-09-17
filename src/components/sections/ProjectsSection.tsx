@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
 import FilterDropdown from '@/components/ui/FilterDropdown';
+import FeaturedProject from '@/components/ui/FeaturedProject';
+import RegularProject from '@/components/ui/RegularProject';
 
 interface Project {
   id: number;
@@ -16,56 +17,63 @@ const projects: Project[] = [
   {
     id: 1,
     title: 'HORIZONTE RESIDENCE',
-    image: '/images/project_1.jpg',
+    image: '/images/image_grid_1.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 2,
     title: 'ONE TOWER',
-    image: '/images/project_2.jpg',
+    image: '/images/image_grid_2.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 3,
     title: 'INFINITY COAST',
-    image: '/images/project_3.jpg',
+    image: '/images/image_grid_3.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 4,
     title: 'SKYLINE TOWER',
-    image: '/images/project_4.jpg',
+    image: '/images/image_grid_4.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 5,
     title: 'GRANDE PLACE TOWER',
-    image: '/images/project_5.jpg',
+    image: '/images/image_grid_5.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 6,
     title: 'IMPERIUM TOWER',
-    image: '/images/project_6.jpg',
+    image: '/images/image_grid_6.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   },
   {
     id: 7,
     title: 'TITANIUM TOWER',
-    image: '/images/project_7.jpg',
+    image: '/images/image_grid_7.png',
     badge: 'PRÉ LANÇAMENTO',
     badgeColor: 'bg-white text-black'
   },
   {
     id: 8,
     title: 'BLUE COST TOWER',
-    image: '/images/project_8.jpg',
+    image: '/images/image_grid_8.png',
+    badge: 'LANÇAMENTO',
+    badgeColor: 'bg-green-500 text-white'
+  },
+  {
+    id: 9,
+    title: 'BLUE COST TOWER',
+    image: '/images/image_grid_9.png',
     badge: 'LANÇAMENTO',
     badgeColor: 'bg-green-500 text-white'
   }
@@ -147,32 +155,20 @@ const ProjectsSection = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {projects.map((project, index) => (
-            <div key={project.id} className={`relative group cursor-pointer ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
-              <div className="relative overflow-hidden rounded-lg">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute bottom-4 left-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${project.badgeColor}`}>
-                    {project.badge}
-                  </span>
-                </div>
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                {project.title}
-              </h3>
-            </div>
+            <React.Fragment key={project.id}>
+              {index === 0 ? (
+                <FeaturedProject project={project} />
+              ) : (
+                <RegularProject project={project} />
+              )}
+            </React.Fragment>
           ))}
         </div>
 
         <div className="text-center">
-          <button className="border border-black text-black px-8 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors">
+          <button className="border border-gray-300 text-gray-300 px-8 py-3 rounded-sm font-semibold hover:bg-gray-600 hover:text-white transition-colors">
             CARREGAR MAIS
           </button>
         </div>
