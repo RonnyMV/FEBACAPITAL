@@ -1,15 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +17,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+}
+
+.font-urbane {
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
 }
 
 @keyframes scroll {
@@ -36,4 +35,277 @@ body {
 
 .animate-scroll {
   animation: scroll 12s linear infinite;
+}
+
+.btn-about {
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  transition: all 0.3s ease;
+  width: 172px;
+  height: 48px;
+}
+
+.btn-about:hover {
+  transform: translateY(-0.125rem);
+  background-color: black;
+  color: white;
+}
+
+.btn-about--hero {
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-about--hero:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-filter {
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 174px;
+  height: 48px;
+}
+
+.btn-filter:hover {
+  transform: translateY(-0.125rem);
+  background-color: black;
+  color: white;
+}
+
+.btn-filter--active {
+  background-color: black;
+  color: white;
+}
+
+.btn-filter--active:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn-primary {
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+}
+
+.btn-primary:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-trigger {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+}
+
+.dropdown-trigger:hover {
+  border-color: #9ca3af;
+}
+
+.dropdown-trigger.open {
+  border-color: #6b7280;
+}
+
+.dropdown-chevron {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+  color: black;
+}
+
+.dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  padding: 0.5rem;
+}
+
+.dropdown-option {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background-color: #f3f4f6;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-option:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-option:hover {
+  background-color: black;
+  color: white;
+}
+
+.dropdown-option.selected {
+  background-color: black;
+  color: white;
+}
+
+.btn-submit {
+  border-radius: 0.25rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  background-color: #1AA584;
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+  width: 370px;
+  height: 48px;
+}
+
+.btn-submit:hover {
+  background-color: #158a6f;
+}
+
+.btn-submit:disabled {
+  background-color: #1AA584;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btn-submit--sent {
+  background-color: #76C9B5;
+  cursor: default;
+}
+
+.btn-submit--sent:hover {
+  background-color: #76C9B5;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 370px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1AA584;
+  box-shadow: 0 0 0 2px rgba(26, 165, 132, 0.2);
+}
+
+.form-input--valid {
+  border-color: #10b981;
+}
+
+.form-input--invalid {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+}
+
+.form-success-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #10b981;
+  width: 1rem;
+  height: 1rem;
+}
+
+.btn-whatsapp {
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: #1AA584;
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Urbanist', Arial, Helvetica, sans-serif;
+  width: 138px;
+  height: 46px;
+}
+
+.btn-whatsapp:hover {
+  background-color: #158a6f;
+}
+
+.green-design {
+  color: #48B79D;
+}
+
+.bg-green-design {
+  background-color: #48B79D;
+}
+
+.border-green-design {
+  border-color: #48B79D;
 }
