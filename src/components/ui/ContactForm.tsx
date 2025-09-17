@@ -143,7 +143,7 @@ const ContactForm = () => {
 
   return (
     <div className='bg-white rounded-lg p-8 shadow-lg'>
-      <h3 className='text-2xl font-bold text-gray-900 mb-6'>
+      <h3 className='text-[17px] md:text-2xl font-bold text-gray-900 mb-6'>
         Fale agora mesmo com a Liva
       </h3>
       
