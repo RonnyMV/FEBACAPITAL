@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 const AboutSection = () => {
   return (
-    <section className='w-full bg-white py-16 md:py-24'>
-      <div className='container mx-auto px-4 pl-[135px] pr-[135px]'>
+    <section className='w-full bg-white py-16 md:py-24 '>
+      <div className='container mx-auto px-4 pl-[135px] pr-[135px] '>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
           
           <div className='relative hidden lg:block'>
