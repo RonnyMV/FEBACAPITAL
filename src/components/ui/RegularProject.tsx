@@ -42,7 +42,7 @@ const RegularProject: React.FC<RegularProjectProps> = ({ project }) => {
           alt={project.title}
           width={400}
           height={200}
-          className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 h-[280px] transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full object-cover h-[280px] transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'} md:group-hover:scale-105 md:transition-transform md:duration-300`}
           loading="lazy"
           onLoad={handleLoad}
           onError={handleError}
