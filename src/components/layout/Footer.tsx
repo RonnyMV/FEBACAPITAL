@@ -1,5 +1,9 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import LazyImage from '@/components/ui/LazyImage';
+import ImageWithSkeleton from '@/components/ui/ImageWithSkeleton';
 
 const Footer = () => {
   return (
@@ -8,13 +12,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="mb-4">
-              <Image
+              <LazyImage
                 src="/images/logos/footer_logo.png"
                 alt="Liva Logo"
                 width={108}
                 height={43}
                 className="h-8 w-auto brightness-0 invert opacity-60" 
-                priority
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed w-[231px]">
