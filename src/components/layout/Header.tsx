@@ -2,18 +2,21 @@
 
 import React from 'react';
 import Image from 'next/image';
+import LazyImage from '@/components/ui/LazyImage';
+import ImageWithSkeleton from '@/components/ui/ImageWithSkeleton';
 
 const Header = () => {
   return (
     <header className="w-full bg-white shadow-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between pl-[135px] pr-[135px]">
         <div className="flex items-center">
-          <Image
+          <LazyImage
             src="/images/logos/logo_header.png"
             alt="Logo"
             width={120}
             height={40}
             className="h-8 w-auto"
+            priority
           />
         </div>
         
