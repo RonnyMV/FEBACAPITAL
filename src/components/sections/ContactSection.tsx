@@ -1,8 +1,46 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import ContactForm from '@/components/ui/ContactForm';
+import ImageSkeleton from '@/components/ui/ImageSkeleton';
+
+const ConsultantImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true);
+  };
+
+  return (
+    <>
+      {!isLoaded && !hasError && (
+        <ImageSkeleton
+          width={48}
+          height={48}
+          className="absolute inset-0 z-10"
+          rounded
+        />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        width={48}
+        height={48}
+        className={`object-cover w-full h-full transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+      />
+    </>
+  );
+};
 
 const ContactSection = () => {
   return (
@@ -23,31 +61,22 @@ const ContactSection = () => {
                 Consultores online
               </h3>
               <div className="flex items-center -space-x-3">
-                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <Image
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage
                     src="/images/consultants/consultant_1.png"
                     alt="Consultor 1"
-                    width={48}
-                    height={48}
-                    className="object-cover w-full h-full"
                   />
                 </div>
-                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <Image
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage
                     src="/images/consultants/consultant_2.png"
                     alt="Consultor 2"
-                    width={48}
-                    height={48}
-                    className="object-cover w-full h-full"
                   />
                 </div>
-                <div className="h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
-                  <Image
+                <div className="relative h-12 w-12 rounded-full ring-2 ring-white overflow-hidden">
+                  <ConsultantImage
                     src="/images/consultants/consultant_3.png"
                     alt="Consultor 3"
-                    width={48}
-                    height={48}
-                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>
@@ -57,7 +86,7 @@ const ContactSection = () => {
           <div className="lg:col-span-3 relative hidden lg:block">
             <div className="absolute inset-0">
               <Image
-                src="/images/image_section_3.jpg"
+                src="/images/sections/image_section_3.jpg"
                 alt="Background"
                 fill
                 className="object-cover"
